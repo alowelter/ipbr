@@ -33,6 +33,7 @@ function getLocationInfoByIp() {
 }
 
 $data = getLocationInfoByIp();
+// Previne bloquear googlebot
 if($data['country'] != 'BR' && !strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot") ) {
     http_response_code(401); // retorna o Erro "Não autorizado"
     die;
